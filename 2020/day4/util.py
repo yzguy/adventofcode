@@ -26,3 +26,13 @@ def parse_passports(lines):
             passport[pair[0]] = pair[1]
 
     return passports
+
+def determine_validity(passports):
+    valid = 0
+    for passport in passports:
+        if ((len(passport.keys()) == 7 and 'cid' not in passport) ^
+        (len(passport.keys()) == 8)):
+            valid +=1
+    
+    return valid
+
