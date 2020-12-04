@@ -10,9 +10,7 @@ def read_file_to_list(filename):
     with open(filename) as reader:
         lines = reader.read().splitlines()
 
-    entries = extend_line(lines)
+    return lines
 
-    return entries
-
-def extend_line(lines):
-    return [list(line * int((len(lines) / 3))) for line in lines] 
+def extend_line(lines, number):
+    return [list(line * 100)  for line in lines]
