@@ -27,12 +27,14 @@ def parse_passports(lines):
 
     return passports
 
-def determine_validity(passports):
-    valid = 0
+def determine_field_validity(passports):
+    results = {'valid': [], 'invalid': []}
     for passport in passports:
         if ((len(passport.keys()) == 7 and 'cid' not in passport) ^
         (len(passport.keys()) == 8)):
-            valid +=1
+            results['valid'].append(passport)
+        else:
+            results['invalid'].append(passport)
     
-    return valid
+    return results
 
