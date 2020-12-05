@@ -8,18 +8,22 @@ def read_file_to_list(filename):
 
     return lines
 
-def parse_boarding_passes(passes):
-    parsed_passes = []
-    for boarding_pass in passes:
+def parse_boarding_passes(boarding_passes):
+    parsed_passes = { 'boarding_passes': [], 'seat_ids': [] }
+    for boarding_pass in boarding_passes:
         row = decode(128, boarding_pass[:7], 'F', 'B')
         column = decode(8, boarding_pass[-3:], 'L', 'R')
-        parsed_passes.append({
+        seat = ((row * 8) + column)
+        parsed_passes['seat_ids'].append(seat)
+        parsed_passes['boarding_passes'].append({
             boarding_pass: {
                 'row': row,
                 'column': column,
-                'seat': ((row * 8) + column)
+                'seat': seat
             }
         })
+
+        parsed_passes['seat_ids'].sort()
 
     return parsed_passes
 
@@ -37,4 +41,4 @@ def decode(max_number, letters, lower, upper):
 
     number = numbers[0]
 
-    return number 
+    return number
