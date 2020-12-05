@@ -11,8 +11,8 @@ def read_file_to_list(filename):
 def parse_boarding_passes(boarding_passes):
     parsed_passes = { 'boarding_passes': [], 'seat_ids': [] }
     for boarding_pass in boarding_passes:
-        row = decode(128, boarding_pass[:7], 'F', 'B')
-        column = decode(8, boarding_pass[-3:], 'L', 'R')
+        row = get_number(boarding_pass[:7], 'F', 'B')
+        column = get_number(boarding_pass[-3:], 'L', 'R')
         seat = ((row * 8) + column)
         parsed_passes['seat_ids'].append(seat)
         parsed_passes['boarding_passes'].append({
@@ -27,6 +27,14 @@ def parse_boarding_passes(boarding_passes):
 
     return parsed_passes
 
+# Each part can be converted to binary to get decimal number
+# Replace Lower/Upper letter with 0 or 1 respectively
+# Convert to base 2 integer
+def get_number(letters, lower, upper):
+    return int(letters.replace(lower, '0').replace(upper, '1'), 2)
+
+# Below functions do the process outlined in prompt
+# Take lower/upper half of list based on letter
 def half(numbers):
     return int(((len(numbers) / 2)))
 
