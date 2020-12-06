@@ -30,7 +30,7 @@ class TestSolutions(unittest.TestCase):
         self.assertEqual(part_one_solution(self.entries), 11)
 
     def test_part_two_solutions(self):
-        self.assertEqual(part_two_solution(self.entries), 402)
+        self.assertEqual(part_two_solution(self.entries), 6)
 
 if __name__ == '__main__':
     unittest.main()

@@ -12,14 +12,18 @@ def parse_groups(lines):
     # Append blank line to signal end of group
     lines.append('')
 
-    groups = []
-    group = []
+    groups, group, count = [], {'letters': {}, 'size': 0}, 0
     for line in lines:
+        count += 1
         if line == '':
-            groups.append(list(set(group)))
-            group = []
+            group['size'] = count - 1
+            groups.append(group)
+            group, count = {'letters': {}, 'size': 0}, 0
             continue
         for letter in line:
-            group.append(letter)
+            if letter in group['letters']:
+                group['letters'][letter] += 1
+            else:
+                group['letters'][letter] = 1
 
     return groups
