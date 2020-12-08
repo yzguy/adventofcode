@@ -18,7 +18,7 @@ def parse_rules(rules):
         contents = parse_contents(contents)
         parsed_rules.append({
             'name': bag,
-            'contents': contents
+            'must_contain': contents
         })
 
     return parsed_rules
@@ -60,7 +60,18 @@ def parse_contents(contents):
 def find_rules_containing_bag(bag, rules):
     inside = []
     for rule in rules:
-        if bag in rule['contents'].keys():
+        if bag in rule['must_contain'].keys():
             inside.append(rule)
 
     return inside
+
+def how_many_bags_within(bag, rules):
+    total = 0
+
+    for rule in rules:
+        if rule['name'] == bag:
+            for k, v in rule['must_contain'].items():
+                total += v
+                total += (v * how_many_bags_within(k, rules))
+
+    return total

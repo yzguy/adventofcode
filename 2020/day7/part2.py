@@ -2,16 +2,12 @@
 #
 #
 
-from util import parse_rules, find_rules_containing_bag
+from util import parse_rules, how_many_bags_within
 
 def part_two_solution(entries):
     rules = parse_rules(entries)
 
     my_bag = 'shiny gold'
+    total = how_many_bags_within(my_bag, rules)
 
-    total = 0
-   
-    rules[my_bag]
-    no_other_bags = False
-    while no_other_bags:
-
+    return total
