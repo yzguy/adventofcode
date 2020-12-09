@@ -12,10 +12,10 @@ class TestSolutions(unittest.TestCase):
     ]
 
     def test_part_one_solutions(self):
-        self.assertEqual(part_one_solution(entries), 0)
+        self.assertEqual(part_one_solution(self.entries), 0)
 
     def test_part_two_solutions(self):
-        self.assertEqual(part_two_solution(entries), 0)
+        self.assertEqual(part_two_solution(self.entries), 0)
 
 if __name__ == '__main__':
     unittest.main()
