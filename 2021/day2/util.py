@@ -12,8 +12,9 @@ def read_file_to_list(filename):
 
     return entries
 
-def calculate_position(entries):
-    x, y = 0, 0
+def calculate_position(entries, include_aim=False):
+    position, depth, aim = 0, 0, 0
+    x, y, z = 0, 0, 0
 
     for entry in entries:
         direction = entry[0]
@@ -21,9 +22,28 @@ def calculate_position(entries):
 
         if direction == 'forward':
             x += value
+            if include_aim:
+                y += z * value
         elif direction == 'up':
-            y -= value
+            z -= value
         elif direction == 'down':
-            y += value
+            z += value
+
+    return x * y
+
+def calculate_position_with_aim(entries):
+    x, y, aim = 0, 0, 0
+
+    for entry in entries:
+        direction = entry[0]
+        value = entry[1]
+
+        if direction == 'forward':
+            x += value
+            y += aim * value
+        elif direction == 'up':
+            aim -= value
+        elif direction == 'down':
+            aim += value
 
     return x * y
