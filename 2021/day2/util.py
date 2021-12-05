@@ -21,29 +21,15 @@ def calculate_position(entries, include_aim=False):
         value = entry[1]
 
         if direction == 'forward':
-            x += value
+            position += value
             if include_aim:
-                y += z * value
-        elif direction == 'up':
-            z -= value
-        elif direction == 'down':
-            z += value
-
-    return x * y
-
-def calculate_position_with_aim(entries):
-    x, y, aim = 0, 0, 0
-
-    for entry in entries:
-        direction = entry[0]
-        value = entry[1]
-
-        if direction == 'forward':
-            x += value
-            y += aim * value
+                depth += aim * value
         elif direction == 'up':
             aim -= value
         elif direction == 'down':
             aim += value
 
-    return x * y
+    if include_aim:
+        return position * depth
+
+    return position * aim
