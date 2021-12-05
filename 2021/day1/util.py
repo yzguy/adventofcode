@@ -18,3 +18,15 @@ def find_increases(entries):
 
     return increases
 
+def find_sliding_window_increases(entries):
+    totals = []
+    for idx, entry in enumerate(entries):
+        window = entries[idx:idx+3]
+
+        if len(window) < 3:
+            break
+
+        totals.append(sum(window))
+
+    increases = find_increases(totals)
+    return increases
