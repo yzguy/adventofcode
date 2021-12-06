@@ -37,3 +37,37 @@ def calculate_epsilon_rate(gamma):
     decimal = int(epsilon, 2) 
 
     return decimal, epsilon
+
+def find_matching_numbers(entries, index, match):
+    numbers = []
+    for entry in entries:
+        if entry[index] == match:
+            numbers.append(entry)
+
+    return numbers
+
+def calculate_oxygen_generator_rating(entries):
+    numbers = entries
+    for i in range(len(numbers[0])):
+        g, gamma = calculate_gamma_rate(numbers)
+        numbers = find_matching_numbers(numbers, i, gamma[i]) 
+        if len(numbers) == 1:
+            break
+
+    decimal = int(numbers[0], 2)
+
+    return decimal, numbers[0]
+
+def calculate_cotwo_scrubber_rating(entries):
+    numbers = entries
+    for i in range(len(numbers[0])):
+        g, gamma = calculate_gamma_rate(numbers)
+        e, epsilon = calculate_epsilon_rate(gamma)
+        numbers = find_matching_numbers(numbers, i, epsilon[i]) 
+        if len(numbers) == 1:
+            break
+
+    decimal = int(numbers[0], 2)
+
+    return decimal, numbers[0]
+

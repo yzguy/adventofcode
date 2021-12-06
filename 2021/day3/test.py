@@ -5,7 +5,7 @@ from part2 import part_two_solution
 import unittest
 
 PART_ONE_ANSWER = 198
-PART_TWO_ANSWER = None
+PART_TWO_ANSWER = 230
 
 class TestSolutions(unittest.TestCase):
     entries = [
