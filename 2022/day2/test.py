@@ -5,7 +5,7 @@ from part2 import part_two_solution
 from util import read_file_to_list
 import unittest
 
-PART_ONE_ANSWER = None
+PART_ONE_ANSWER = 15
 PART_TWO_ANSWER = None
 
 
