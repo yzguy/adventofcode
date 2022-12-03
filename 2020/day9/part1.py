@@ -4,6 +4,7 @@
 
 from util import find_numbers_for_sum
 
+
 def part_one_solution(entries, preamble_size=25):
     current = preamble_size
 

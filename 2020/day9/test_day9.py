@@ -28,7 +28,7 @@ class TestSolutions(unittest.TestCase):
         299,
         277,
         309,
-        576
+        576,
     ]
 
     def test_part_one_solutions(self):
@@ -37,5 +37,6 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solutions(self):
         self.assertEqual(part_two_solution(self.entries, 5), 62)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

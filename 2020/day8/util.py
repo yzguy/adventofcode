@@ -2,27 +2,28 @@
 #
 #
 
+
 def read_file_to_list(filename):
     with open(filename) as reader:
         lines = reader.read().splitlines()
 
     return lines
 
+
 def parse_instructions(instructions):
     parsed_instructions = []
 
     for instruction in instructions:
-        instruction = instruction.split(' ')
+        instruction = instruction.split(" ")
         operation = instruction[0]
-        argument = int(instruction[1].replace('+', ''))
+        argument = int(instruction[1].replace("+", ""))
 
-        parsed_instructions.append({
-            'operation': operation,
-            'argument': argument,
-            'executed': False
-        })
+        parsed_instructions.append(
+            {"operation": operation, "argument": argument, "executed": False}
+        )
 
     return parsed_instructions
+
 
 def execute_instructions(instructions):
     index, acc, executed = 0, 0, False
@@ -34,20 +35,20 @@ def execute_instructions(instructions):
             instruction = instructions[index]
         except IndexError:
             break
-        operation = instruction['operation']
-        argument = instruction['argument']
+        operation = instruction["operation"]
+        argument = instruction["argument"]
 
-        if instruction['executed']:
+        if instruction["executed"]:
             executed = True
             break
 
-        if operation == 'acc':
+        if operation == "acc":
             acc += argument
             index += 1
-        elif operation == 'jmp':
+        elif operation == "jmp":
             index += argument
-        elif operation == 'nop':
+        elif operation == "nop":
             index += 1
 
-        instruction['executed'] = True
+        instruction["executed"] = True
     return acc, executed

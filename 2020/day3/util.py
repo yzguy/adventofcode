@@ -2,9 +2,10 @@
 #
 #
 
-# Input is 
+# Input is
 # Width = 31
 # Length = 323
+
 
 def read_file_to_list(filename):
     with open(filename) as reader:
@@ -12,5 +13,6 @@ def read_file_to_list(filename):
 
     return lines
 
+
 def extend_line(lines, number):
-    return [list(line * 100)  for line in lines]
+    return [list(line * 100) for line in lines]

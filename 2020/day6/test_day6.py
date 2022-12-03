@@ -9,21 +9,21 @@ import unittest
 
 class TestSolutions(unittest.TestCase):
     entries = [
-        'abc',
-        '',
-        'a',
-        'b',
-        'c',
-        '',
-        'ab',
-        'ac',
-        '',
-        'a',
-        'a',
-        'a',
-        'a',
-        '',
-        'b'
+        "abc",
+        "",
+        "a",
+        "b",
+        "c",
+        "",
+        "ab",
+        "ac",
+        "",
+        "a",
+        "a",
+        "a",
+        "a",
+        "",
+        "b",
     ]
 
     def test_part_one_solutions(self):
@@ -32,5 +32,6 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solutions(self):
         self.assertEqual(part_two_solution(self.entries), 6)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -2,6 +2,7 @@
 #
 #
 
+
 def part_one_solution(entries):
     entries.sort()
 
@@ -9,10 +10,7 @@ def part_one_solution(entries):
     entries.append(entries[-1] + 3)
 
     # Keep track of diffs of 1 and 3
-    differences = {
-        1: 0,
-        3: 0
-    }
+    differences = {1: 0, 3: 0}
 
     current_joltage_output = 0
     for entry in entries:

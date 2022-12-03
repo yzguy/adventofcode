@@ -8,8 +8,7 @@ import unittest
 
 
 class TestSolutions(unittest.TestCase):
-    entries = [
-    ]
+    entries = []
 
     def test_part_one_solutions(self):
         self.assertEqual(part_one_solution(self.entries), 0)
@@ -17,5 +16,6 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solutions(self):
         self.assertEqual(part_two_solution(self.entries), 0)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

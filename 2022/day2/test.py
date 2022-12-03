@@ -18,11 +18,12 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solution(self):
         self.assertEqual(part_two_solution(self.entries), PART_TWO_ANSWER)
 
+
 class TestUtil(unittest.TestCase):
     cases = [
-        ['A', 'Y'],
-        ['B', 'X'],
-        ['C', 'Z'],
+        ["A", "Y"],
+        ["B", "X"],
+        ["C", "Z"],
     ]
 
     def test_play(self):
@@ -32,12 +33,9 @@ class TestUtil(unittest.TestCase):
             self.assertEqual(scores[idx], play(*case))
 
     def test_strategy_guide(self):
-        entries = [
-            ['A', 'X'],
-            ['B', 'X'],
-            ['C', 'X']
-        ]
+        entries = [["A", "X"], ["B", "X"], ["C", "X"]]
         self.assertEqual(entries, strategy_guide(TestUtil.cases))
+
 
 if __name__ == "__main__":
     unittest.main()

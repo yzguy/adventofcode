@@ -4,14 +4,15 @@ from part1 import part_one_solution
 from part2 import part_two_solution
 import unittest
 
+
 class TestSolutions(unittest.TestCase):
     entries = [
-        ['forward', 5],
-        ['down', 5],
-        ['forward', 8],
-        ['up', 3],
-        ['down', 8],
-        ['forward', 2]
+        ["forward", 5],
+        ["down", 5],
+        ["forward", 8],
+        ["up", 3],
+        ["down", 8],
+        ["forward", 2],
     ]
 
     def test_part_one_solution(self):
@@ -20,6 +21,6 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solution(self):
         self.assertEqual(part_two_solution(self.entries), 900)
 
-if __name__ == '__main__':
-    unittest.main()
 
+if __name__ == "__main__":
+    unittest.main()

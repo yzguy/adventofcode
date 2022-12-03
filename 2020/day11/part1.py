@@ -4,6 +4,7 @@
 
 from util import parse_floorplan, apply_rules_to_floorplan
 
+
 def part_one_solution(entries):
     floorplan = parse_floorplan(entries)
 
@@ -18,7 +19,7 @@ def part_one_solution(entries):
             total_occupied = 0
             for row in floorplan:
                 for col in row:
-                    if col['status'] == '#':
+                    if col["status"] == "#":
                         total_occupied += 1
 
             return total_occupied

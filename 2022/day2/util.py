@@ -22,6 +22,7 @@ def read_file_to_list(filename):
 
     return entries
 
+
 def play(opponent, me):
     points = OPTIONS[me]
 
@@ -40,27 +41,28 @@ def play(opponent, me):
 
     return points
 
+
 def strategy_guide(entries):
     # X = LOSE, Y = DRAW, Z = WIN
     results = {
         # Rock
-        'A': {
-            'X': 'Z', # Scissors
-            'Y': 'X', # Rock
-            'Z': 'Y', # Paper
+        "A": {
+            "X": "Z",  # Scissors
+            "Y": "X",  # Rock
+            "Z": "Y",  # Paper
         },
         # Paper
-        'B': {
-            'X': 'X', # Rock
-            'Y': 'Y', # Paper
-            'Z': 'Z', # Scissor
+        "B": {
+            "X": "X",  # Rock
+            "Y": "Y",  # Paper
+            "Z": "Z",  # Scissor
         },
         # Scissor
-        'C': {
-            'X': 'Y', # Paper
-            'Y': 'Z', # Scissor
-            'Z': 'X', # Rock
-        }
+        "C": {
+            "X": "Y",  # Paper
+            "Y": "Z",  # Scissor
+            "Z": "X",  # Rock
+        },
     }
     e = [[entry[0], results[entry[0]][entry[1]]] for entry in entries]
 
