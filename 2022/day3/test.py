@@ -18,20 +18,20 @@ class TestSolutions(unittest.TestCase):
     def test_part_two_solution(self):
         self.assertEqual(part_two_solution(self.entries), PART_TWO_ANSWER)
 
-class TestUtil(unittest.TestCase):
 
+class TestUtil(unittest.TestCase):
     def test_split_entry(self):
         cases = [
-            'abc123',
-            '111222',
-            '808aaa',
+            "abc123",
+            "111222",
+            "808aaa",
         ]
 
         results = [
             # first, second
-            ('abc', '123'),
-            ('111', '222'),
-            ('808', 'aaa'),
+            ("abc", "123"),
+            ("111", "222"),
+            ("808", "aaa"),
         ]
 
         for idx, case in enumerate(cases):
@@ -39,24 +39,25 @@ class TestUtil(unittest.TestCase):
 
     def test_shared_item(self):
         cases = [
-            [['A', 'B', 'C'], ['C', 'D', 'E']],
-            [['Z', 'L', 'M'], ['M', 'N', 'E'], ['F', 'M', 'Q']],
+            [["A", "B", "C"], ["C", "D", "E"]],
+            [["Z", "L", "M"], ["M", "N", "E"], ["F", "M", "Q"]],
         ]
 
         results = [
-            'C',
-            'M',
+            "C",
+            "M",
         ]
 
         for idx, case in enumerate(cases):
             self.assertEqual(results[idx], shared_item(*case))
 
     def test_letter_to_priority(self):
-        cases = ['A', 'x', 'O']
+        cases = ["A", "x", "O"]
         results = [27, 24, 41]
 
         for idx, case in enumerate(cases):
             self.assertEqual(results[idx], letter_to_priority(case))
+
 
 if __name__ == "__main__":
     unittest.main()

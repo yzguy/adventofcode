@@ -62,10 +62,12 @@ def make_groups(entries):
     for group in list(chunks(entries, 3)):
         shared = shared_item(group[0], group[1], group[2])
         priority = letter_to_priority(shared)
-        g["groups"].append({
-            'shared': shared,
-            'priority': priority,
-        })
+        g["groups"].append(
+            {
+                "shared": shared,
+                "priority": priority,
+            }
+        )
 
     g["total"] = sum_priorities(g["groups"])
 
