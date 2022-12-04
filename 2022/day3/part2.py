@@ -2,6 +2,10 @@
 #
 #
 
+from util import make_groups
+
 
 def part_two_solution(entries):
-    return None
+    groups = make_groups(entries)
+
+    return groups["total"]
