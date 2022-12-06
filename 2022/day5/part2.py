@@ -1,7 +1,9 @@
 #
 #
 #
+from util import run
 
 
 def part_two_solution(entries):
-    return None
+    result = run(entries, upgrade=True)
+    return result

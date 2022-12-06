@@ -26,8 +26,8 @@ def parse_procedures(procedures):
         parts = procedure.split(" ")
         p.append({
             "num": int(parts[1]),
-            "from": int(parts[3]),
-            "to": int(parts[5])
+            "from": int(parts[3])-1,
+            "to": int(parts[5])-1
         })
 
     return p
@@ -43,12 +43,17 @@ def split_input(entries):
     return blocks, procedures
 
 
-def run(entries):
+def run(entries, upgrade=False):
     blocks, procedures = split_input(entries)
     for procedure in procedures:
-        for i in range(procedure["num"]):
-            letter = blocks[procedure["from"] - 1].pop()
-            blocks[procedure["to"] - 1].append(letter)
+        if not upgrade:
+            for i in range(procedure["num"]):
+                blocks[procedure["to"]].append(
+                        blocks[procedure["from"]].pop())
+        else:
+            blocks[procedure["to"]].extend(
+                    blocks[procedure["from"]][-procedure["num"]:])
+            del blocks[procedure["from"]][-procedure["num"]:]
 
     last = "".join([line.pop() for line in blocks])
 
