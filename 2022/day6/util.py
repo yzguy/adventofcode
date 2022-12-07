@@ -11,15 +11,14 @@ def read_file_to_list(filename):
 
 
 def unique(elems):
-    for elem in elems:
-        if elems.count(elem) > 1:
-            return False
+    if len(elems) > len(set(elems)):
+        return False
     return True
 
 
-def find_marker(entries):
-    start = 4
+def find_sequence(entries, size):
+    start = size
     for entry in entries:
-        if unique(entries[start-4:start:]):
+        if unique(entries[start-size:start:]):
             return start
         start += 1

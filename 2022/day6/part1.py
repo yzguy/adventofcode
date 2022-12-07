@@ -1,10 +1,8 @@
 #
 #
 #
-from util import find_marker
+from util import find_sequence
 
 
 def part_one_solution(entries):
-    marker = find_marker(entries)
-
-    return marker
+    return find_sequence(entries, size=4)
