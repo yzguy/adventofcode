@@ -5,4 +5,5 @@ from util import find_visible_trees
 
 
 def part_one_solution(entries):
-    return find_visible_trees(entries)
+    visible_trees, _ = find_visible_trees(entries)
+    return visible_trees

@@ -6,7 +6,7 @@ from util import read_file_to_list
 import unittest
 
 PART_ONE_ANSWER = 21
-PART_TWO_ANSWER = None
+PART_TWO_ANSWER = 8
 
 
 class TestSolutions(unittest.TestCase):
